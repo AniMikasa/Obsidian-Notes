@@ -818,4 +818,35 @@ bool decreaseCString(const char* a, const char* b)
 }
 ```
 
-函数指针实现cai da
+函数指针实现菜单选择：
+```cpp
+#include <iostream>
+using namespace std;
+
+// 假设已定义这些函数
+void add() {}
+void erase() {}
+void modify() {}
+void printSalary() {}
+void printReport() {}
+
+int main()
+{
+    int select;
+    void (*func[6])() = {NULL, add, erase, modify, printSalary, printReport};
+
+    while(true) {
+    cout << "1--add \n";
+    cout << "2--delete\n";
+    cout << "3--modify\n";
+    cout << "4--print salary\n";
+    cout << "5--print report\n";
+    cout << "0--quit\n";
+    cin >> select;
+
+    if (select == 0) return 0;
+    if (select > 5) cout << "input error\n"; else func[select]();
+
+    }
+}
+```
