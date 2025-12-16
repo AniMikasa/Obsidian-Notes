@@ -492,7 +492,48 @@ r = 47
 r = 5  
 x = 5  
 ```
-引用传递是地址传递的另一种更简单明了的实现方法。在C++程序中，函数参数经常采用引用传递。利用引用传递的好处是减少函数调用时的开销：不需要分配新的内存空间；不需要复制实际参数的数值。如果在函数内不许改变参数的值，则形式参数用const限定，此时实参数可以绑定到右值。对非const的形式参数采用引用传递时，实际参数不能是常量或临时量。
+引用传递是地址传递的另一种更简单明了的实现方法。在C++程序中，函数参数经常采用引用传递。利用引用传递的好处是减少函数调用时的开销：不需要分配新的内存空间；不需要复制实际参数的数值。如果在函数内不许改变参数的值，则形式参数用const限定，此时实参数可以绑定到右值。对非const的形式参数采用引用传递时，实际参数不能是常量或临时量。注意判断什么时候会创建临时对象
+ ```cpp
+ void func(const int& ref) {
+    cout << ref << endl;
+}
+
+int main() {
+    int x = 10;
+    func(x);  // ✅ 不创建临时对象，ref 直接绑定到 x
+    
+    const int y = 20;
+    func(y);  // ✅ 不创建临时对象
+    
+    func(30);  // ❓ 这里会创建临时对象！因为 30 是右值
+    return 0;
+}
+
+
+
+#include <iostream>
+using namespace std;
+
+void printDouble(const double& ref) {
+    cout << "地址: " << &ref << ", 值: " << ref << endl;
+}
+
+int main() {
+    int intValue = 42;
+    
+    cout << "intValue 地址: " << &intValue << endl;
+    
+    // int → double 需要转换
+    printDouble(intValue);  // ✅ 会创建临时 double 对象！
+    
+    double doubleValue = 3.14;
+    printDouble(doubleValue);  // ✅ 不创建临时对象
+    
+    printDouble(100);  // ✅ 创建临时对象（int → double）
+    
+    return 0;
+}
+ ```
 
 **返回引用的函数**：函数的返回值可以是一个引用。它表示函数的返回值是函数内某一个变量（不能是局部变量）的引用。返回引用的函数原型：`类型 &函数名 (形式参数表)`
 ```cpp
