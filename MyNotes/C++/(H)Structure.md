@@ -352,6 +352,43 @@ delPtr=p->next;
 p->next=delPtr->next;
 ```
 
+单链表整体删除：
+循环实现
+```cpp
+void deleteEntireList() {
+    Node* current = head;    // 从第一个节点开始
+    Node* next = nullptr;    // 用于保存下一个节点
+    
+    while (current != nullptr) {
+        next = current->next;  // 保存下一个节点的地址
+        delete current;        // 删除当前节点
+        current = next;        // 移动到下一个节点
+    }
+    
+    head = nullptr;           // 重要：将头指针设为空
+    cout << "整个链表已删除" << endl;
+}
+```
+递归实现
+```cpp
+void deleteEntireListRecursive(Node* node) {
+    if (node == nullptr) {
+        return;
+    }
+    deleteEntireListRecursive(node->next);
+    delete node;
+}
+
+// 调用方式
+void deleteEntireList() {
+    deleteEntireListRecursive(head);
+    head = nullptr;
+    cout << "整个链表已删除" << endl;
+}
+```
+
+
+
 **循环链表：**
 【约瑟夫环】
 ```cpp
