@@ -762,3 +762,176 @@ double (*p2) (int);
 
 指针变量名 = 函数名；//完成赋值，p1(),f1()
 ```
+
+函数指针用于实现高阶函数：
+```cpp
+#include <iostream>
+#include <cstring>  // 包含 strcmp 函数
+using namespace std;
+
+// 通用的冒泡排序函数模板
+template <class T>
+void sort(T a[], int size, bool (*f)(T, T))
+{
+    bool flag;
+    int i, j;
+
+    for (i = 1; i < size; ++i) {
+        flag = false;
+        for (j = 0; j < size - i; ++j) {
+            if (f(a[j], a[j + 1])) {
+                T tmp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = tmp;
+                flag = true;
+            }
+        }
+        if (!flag) break;
+    }
+}
+
+// 比较函数：递增排序（前一个大于后一个时返回 true，需要交换）
+bool increaseInt(int a, int b)
+{
+    return a > b;
+}
+
+// 比较函数：递减排序（前一个小于后一个时返回 true，需要交换）
+bool decreaseInt(int a, int b)
+{
+    return a < b;
+}
+
+
+// 比较函数：C风格字符串递增排序（使用 strcmp）
+bool increaseCString(const char* a, const char* b)
+{
+    // strcmp(a, b) > 0 表示 a > b，需要交换
+    return strcmp(a, b) > 0;
+}
+
+// 比较函数：C风格字符串递减排序（使用 strcmp）
+bool decreaseCString(const char* a, const char* b)
+{
+    // strcmp(a, b) < 0 表示 a < b，需要交换
+    return strcmp(a, b) < 0;
+}
+
+int main()
+{
+    cout << "=== 整型数组排序 ===" << endl;
+    // 整型数组排序
+    int a[] = {34, 12, 5, 66, 23, 90, 7};
+    int size = sizeof(a) / sizeof(a[0]);
+
+    // 按递增排序
+    sort(a, size, increaseInt);
+    cout << "整型数组递增排序结果：";
+    for (int i = 0; i < size; ++i) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+
+    // 重新赋值数组，以便再次排序
+    int b[] = {34, 12, 5, 66, 23, 90, 7};
+
+    // 按递减排序
+    sort(b, size, decreaseInt);
+    cout << "整型数组递减排序结果：";
+    for (int i = 0; i < size; ++i) {
+        cout << b[i] << " ";
+    }
+    cout << endl << endl;
+
+    cout << "=== 字符数组排序 ===" << endl;
+    // 字符数组排序
+    char c[] = {'z', 'a', 'M', 'p', 'K', 'd', 'G'};
+    int charSize = sizeof(c) / sizeof(c[0]);
+
+    // 字符递增排序（按ASCII码）
+    sort(c, charSize, increaseChar);
+    cout << "字符数组递增排序结果：";
+    for (int i = 0; i < charSize; ++i) {
+        cout << c[i] << " ";
+    }
+    cout << endl;
+
+    // 重新赋值字符数组
+    char d[] = {'z', 'a', 'M', 'p', 'K', 'd', 'G'};
+
+    // 字符递减排序（按ASCII码）
+    sort(d, charSize, decreaseChar);
+    cout << "字符数组递减排序结果：";
+    for (int i = 0; i < charSize; ++i) {
+        cout << d[i] << " ";
+    }
+    cout << endl << endl;
+
+    cout << "=== C风格字符串数组排序（使用strcmp）===" << endl;
+    // C风格字符串数组排序
+    const char* strings[] = {"apple", "zebra", "cat", "banana", "dog", "Apple"};
+    int strSize = sizeof(strings) / sizeof(strings[0]);
+
+    // 字符串递增排序（区分大小写）
+    sort(strings, strSize, increaseCString);
+    cout << "C风格字符串数组递增排序结果（区分大小写）：" << endl;
+    for (int i = 0; i < strSize; ++i) {
+        cout << strings[i] << " ";
+    }
+    cout << endl;
+
+    // 重新赋值字符串数组
+    const char* strings2[] = {"apple", "zebra", "cat", "banana", "dog", "Apple"};
+
+    // 字符串递减排序（区分大小写）
+    sort(strings2, strSize, decreaseCString);
+    cout << "C风格字符串数组递减排序结果（区分大小写）：" << endl;
+    for (int i = 0; i < strSize; ++i) {
+        cout << strings2[i] << " ";
+    }
+    cout << endl << endl;
+
+    cout << "=== 扩展：不区分大小写的字符串排序 ===" << endl;
+    // 不区分大小写的比较函数
+    bool increaseCStringIgnoreCase(const char* a, const char* b)
+    {
+        // 使用 stricmp 或 strcasecmp（Windows下是 stricmp，Linux下是 strcasecmp）
+        // 这里为了兼容性，我们自己实现一个简单的版本
+        while (*a && *b) {
+            char ca = tolower(*a);
+            char cb = tolower(*b);
+            if (ca != cb) {
+                return ca > cb;
+            }
+            a++;
+            b++;
+        }
+        return tolower(*a) > tolower(*b);
+    }
+
+    bool decreaseCStringIgnoreCase(const char* a, const char* b)
+    {
+        while (*a && *b) {
+            char ca = tolower(*a);
+            char cb = tolower(*b);
+            if (ca != cb) {
+                return ca < cb;
+            }
+            a++;
+            b++;
+        }
+        return tolower(*a) < tolower(*b);
+    }
+
+    const char* strings3[] = {"apple", "Zebra", "Cat", "banana", "dog", "apple"};
+    // 不区分大小写的递增排序
+    sort(strings3, strSize, increaseCStringIgnoreCase);
+    cout << "不区分大小写的递增排序结果：" << endl;
+    for (int i = 0; i < strSize; ++i) {
+        cout << strings3[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+```
