@@ -352,15 +352,15 @@ int main(){
 ```
 接下来我们用分治法在一个整数数组找出最大和最小值：
 ```cpp
-void minmax(int a[],int *min_ptr,int *max_ptr){
+void minmax(int a[],int n, int *min_ptr,int *max_ptr){
 	innt min1,max1,min2,max2
 	switch(n){
 	case 1:*min_ptr=*max_ptr=a[0];return;//最大最小都是a[0]
 	case 2: if (a[0] < a[1]) { *min_ptr = a[0]; *max_ptr = a[1]; }
 		    else { *min_ptr = a[1]; *max_ptr = a[0]; }
 		    return;//大的放入*max_ptr,小的放入*min_ptr
-	default:minmax(a+n/2,&min1,&min2);//确保被调函数的值返回主调函数“&”
-			 minmax(a + n/2, n - n/2, &min2, &max2 );//分
+	default:minmax(a , n/2 , &min1,&min2);//确保被调函数的值返回主调函数“&”
+			minmax(a+n/2 , n-n/2, &min2, &max2 );//分
 		    if (min1 < min2) *min_ptr = min1;//注意，这里不能是min_ptr=&min1;
 		    else *min_ptr = min2;
 		    if (max1 < max2) *max_ptr = max2;
