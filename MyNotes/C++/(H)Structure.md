@@ -369,7 +369,7 @@ void deleteEntireList() {
     cout << "整个链表已删除" << endl;
 }
 ```
-递归实现
+递归实现( 当链表很长的时候，可能会导致递归深度过大而造成栈溢出)
 ```cpp
 void deleteEntireListRecursive(Node* node) {
     if (node == nullptr) {
