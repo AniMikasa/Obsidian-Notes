@@ -210,6 +210,11 @@ economically
 received
 societal
 pillar
+counterparts
+crave
+autonomy
+pursue
+careers
 
 
 
