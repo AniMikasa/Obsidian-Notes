@@ -491,11 +491,11 @@ static void SetRate (double newRate) ( rate = newRate; }
 静态成员函数可定义为内联的，也可在类外定义，在类外定义时，不用加static。
 静态成员函数可以通过类作用域限定符或通过对象访问：
 ```cpp
-类名：：静态成员函数名（）
+类名：：静态成员函数名()
 
 //或  
 
-对象名.静态成员函数名（）
+对象名.静态成员函数名()
 ```
 以上两点均与静态数据成员的定义和使用相似，下面提供一个静态成员函数定义实例：
 ```cpp
@@ -522,7 +522,7 @@ int goods::getweight() {
 	return weight;
 }
 
-int goods::totalweight) {
+int goods::totalweight() {
 	return total_weight;
 }
 ```
