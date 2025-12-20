@@ -12,11 +12,12 @@ class SkillList {
 private:  
     int maxNum;  
     int counts=0;  
-    skill* head;  
+    skill* head; 
+    skill* rear; 
 public:  
     explicit SkillList(int Maximum) {  
-        head = new skill;  
-        head->next=NULL;  
+        head = rear = new skill;  
+        rear->next=NUL;  
         maxNum = Maximum;    
     }  
     bool add(char* name) {  
