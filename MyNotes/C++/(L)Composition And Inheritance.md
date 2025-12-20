@@ -17,15 +17,16 @@ private:
 public:  
     explicit SkillList(int Maximum) {  
         head = rear = new skill;  
-        rear->next=NUL;  
+        rear->next=NULL;  
         maxNum = Maximum;    
     }  
     bool add(char* name) {  
         if (counts==maxNum){return false;}  
         else {  
                 if (counts==0) {  
-                    head->name=new char[strlen(name)+1];  
-                    strcpy(head->name,name);  
+	                rear->next=new skill;
+                    rear->name=new char[strlen(name)+1];  
+                    strcpy(rear->name,name);  
                     counts++;  
                     return true;  
                 }  
