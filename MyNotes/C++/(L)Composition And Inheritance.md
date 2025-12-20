@@ -19,7 +19,20 @@ public:
         head->next=NULL;  
         maxNum = Maximum;    
     }  
-    bool add(char* name) {  
+    bool add(char* name) ;
+    }  
+    void display() ;
+    ~SkillList() {  
+		 DeleteList(head);  
+    }  
+};  
+
+void DeleteList(skill*& h) {  
+    if (!h){return;}
+    if (!h->next){delete h;h=nullptr;return;}
+    DeleteList(h->next);
+}
+bool add(char* name) {  
         if (counts==maxNum){return false;}  
         else {  
             skill* current=head;  
@@ -35,7 +48,7 @@ public:
 			return true;  
         }  
     }  
-    void display() {  
+void display() {  
         if (counts==0) {  
             cout<<"None"<<endl;  
         }  
@@ -50,14 +63,5 @@ public:
         }  
   
     }  
-    ~SkillList() {  
-		 DeleteList(head);  
-    }  
-};  
-
-void DeleteList(skill*& h) {  
-    if (!h){return;}
-    if (!h->next){delete h;h=nullptr;}
-    DeleteList(h->next);
-}
+    
 ```
