@@ -223,7 +223,15 @@ emergence
 trendy
 clothes
 while it might seem silly
-
+valorising
+receive
+buzz
+memorialise
+resemblance
+senior
+excellent
+tribute
+genes
 
 
 ---
