@@ -32,7 +32,7 @@ void DeleteList(skill*& h) {
     if (!h->next){delete h;h=nullptr;return;}
     DeleteList(h->next);
 }
-bool add(char* name) {  
+bool SkillList::add(char* name) {  
         if (counts==maxNum){return false;}  
         else {  
             skill* current=head;  
@@ -48,7 +48,7 @@ bool add(char* name) {
 			return true;  
         }  
     }  
-void display() {  
+void SkillList::display() {  
         if (counts==0) {  
             cout<<"None"<<endl;  
         }  
