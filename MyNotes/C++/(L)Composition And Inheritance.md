@@ -17,8 +17,7 @@ public:
     explicit SkillList(int Maximum) {  
         head = new skill;  
         head->next=NULL;  
-        maxNum = Maximum;  
-        cout<<"Construct SkillList: None"<<endl;  
+        maxNum = Maximum;    
     }  
     bool add(char* name) {  
         if (counts==maxNum){return false;}  
@@ -70,38 +69,12 @@ public:
   
     }  
     ~SkillList() {  
-        cout<<"Destruct skills: ";  
-        if (counts==0) {  
-            cout<<"None"<<endl;  
-        }else {  
-            Delete(head,counts);  
-            while (counts>1) {  
-                counts--;  
-                cout<<", ";  
-                Delete(head,counts);  
-            }  
-            cout<<endl;  
-        }  
+	    if (counts！=0) {
+	        Delete(head,counts);  
+        }
     }  
 };  
-int main() {  
-    int maxNum;  
-    cout << "Max number of skills: ";  
-    cin >> maxNum; cin.get();  
-    SkillList *pMember = new SkillList (maxNum);  
-    while (true) {  
-        char *skillName = new char[20];  
-        cout << "Learn a new skill: ";  
-        cin.getline(skillName, 20);  
-        if (!pMember->add(skillName)) {  
-            delete[] skillName;  
-            break;  
-        }  
-    }  
-    if (maxNum > 0) pMember->display();  
-    delete pMember;  
-    return 0;  
-}  
+
 void Delete(skill* h,int length) {  
     for (int i=1;i<length;i++) {  
         h=h->next;  
