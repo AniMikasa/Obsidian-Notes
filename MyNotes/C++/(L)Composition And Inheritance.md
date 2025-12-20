@@ -22,37 +22,17 @@ public:
     bool add(char* name) {  
         if (counts==maxNum){return false;}  
         else {  
-                if (counts==0) {  
-	                skill* newNode=new skill;
-	                newNode->next=head->next;
-	                head->next=newNode;
-                    newNode->name=new char[strlen(name)+1];  
-                    strcpy(newNode->name,name);  
-                    counts++;  
-                    return true;  
-                }  
-                if (strcmp(head->name,name)>0) {  
-                    skill* p=new skill;  
-                    p->next=head;  
-                    p->name=new char[strlen(name)+1];  
-                    strcpy(p->name,name);  
-                    head=p;  
-                    counts++;  
-                    return true;  
-                }  
-  
-                skill* current=head;  
-                while (current->next!=NULL && strcmp(current->next->name,name)<0) {  
+            skill* current=head;  
+            while (current->next!=NULL && strcmp(current->next->name,name)<0) {  
                     current=current->next;  
                 }  
-                skill* p=new skill;  
-                p->next=current->next;  
-                p->name=new char[strlen(name)+1];  
-                strcpy(p->name,name);  
-                current->next=p;  
-                counts++;  
-  
-                return true;  
+            skill* newNode=new skill;  
+            newNode->next=current->next;  
+            newNode->name=new char[strlen(name)+1];  
+            strcpy(newNode->name,name);  
+            current->next=newNode;  
+            counts++;  
+			return true;  
         }  
     }  
     void display() {  
