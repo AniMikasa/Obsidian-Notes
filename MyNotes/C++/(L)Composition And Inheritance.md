@@ -3,7 +3,7 @@
 #include <cstring>  
 using namespace std;  
 struct skill;  
-void Delete(skill* ,int );  
+void DeleteList (skill*&);  
 struct skill {  
     skill* next;  
     char* name;  
@@ -45,25 +45,19 @@ public:
             while(p->next!=NULL) { 
 	            p=p->next; 
                 cout<<", "<<p->name;  
-                p=p->next;  
             }  
             cout<<endl;  
         }  
   
     }  
     ~SkillList() {  
-	    if (counts！=0) {
-	        Delete(head,counts);  
-        }
+		 DeleteList(head);  
     }  
 };  
 
-void Delete(skill* h,int length) {  
-    for (int i=1;i<length;i++) {  
-        h=h->next;  
-    }  
-    cout<<h->name;  
-    delete []h->name;  
-    delete h;  
+void DeleteList(skill*& h) {  
+    if (!h){return;}
+    if (!h->next){delete h;h=nullptr;}
+    DeleteList(h->next);
 }
 ```
