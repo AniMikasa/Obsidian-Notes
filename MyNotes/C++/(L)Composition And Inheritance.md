@@ -13,20 +13,21 @@ private:
     int maxNum;  
     int counts=0;  
     skill* head; 
-    skill* rear; 
 public:  
     explicit SkillList(int Maximum) {  
-        head = rear = new skill;  
-        rear->next=NULL;  
+        head = new skill;  
+        head->next=NULL;  
         maxNum = Maximum;    
     }  
     bool add(char* name) {  
         if (counts==maxNum){return false;}  
         else {  
                 if (counts==0) {  
-	                rear->next=new skill;
-                    rear->name=new char[strlen(name)+1];  
-                    strcpy(rear->name,name);  
+	                skill* newNode=new skill;
+	                newNode->next=head->next;
+	                head->next=newNode;
+                    newNode->name=new char[strlen(name)+1];  
+                    strcpy(newNode->name,name);  
                     counts++;  
                     return true;  
                 }  
