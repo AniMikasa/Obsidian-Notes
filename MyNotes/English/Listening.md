@@ -278,6 +278,18 @@ categories
 amended
 prey
 raptors
+upgraded
+falcon
+eagle owls
+marine
+mammals
+cetaceans
+northern
+Pacific
+turtles
+freshwater
+tortoises
+long-deserved
 
 
 ---
