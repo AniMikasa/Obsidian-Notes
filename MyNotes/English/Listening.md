@@ -216,6 +216,13 @@ autonomy
 pursue
 careers
 unfortunately
+intense
+fostering
+bonding
+emergence
+trendy
+clothes
+while it might seem silly
 
 
 
