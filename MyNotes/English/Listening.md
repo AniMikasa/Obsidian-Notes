@@ -252,6 +252,14 @@ audience
 switch
 resonates
 
+U8
+amendment
+announced
+announcement
+felt
+improvements
+applaud
+perseption
 
 
 ---
