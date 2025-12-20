@@ -36,14 +36,14 @@ public:
         }  
     }  
     void display() {  
-        cout<<"Learned skills: ";  
         if (counts==0) {  
             cout<<"None"<<endl;  
         }  
         else {  
             skill* p=head->next;  
-            cout<<head->name;  
-            for (int i=1;i<counts;i++) {  
+            cout<<p->name;  
+            while(p->next!=NULL) { 
+	            p=p->next; 
                 cout<<", "<<p->name;  
                 p=p->next;  
             }  
