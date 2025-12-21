@@ -213,8 +213,7 @@ text
 
 ## 4. **示例对比**
 
-c
-
+```cpp
 #include <stdio.h>
 
 int global = 10;           // 全局变量：整个程序
@@ -236,6 +235,7 @@ int main() {
     test();  // static: 7, auto: 21  ← 注意auto_var重新初始化！
     return 0;
 }
+```
 
 ## 5. **重要区别总结**
 
