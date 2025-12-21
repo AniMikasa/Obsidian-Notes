@@ -369,6 +369,18 @@ IntArray f() {
 arr = f();//赋值运算，不构造
 
 //当执行到return语句时，会创建一个IntArray类的临时对象，并调用拷贝构造函数，用对象a来初始化该临时对象，并将其作为主调函数获得的返回值。这个地方a是左值，但函数的返回值是右值
+
+
+
+//移动构造函数示例：
+class MyClass {
+public:
+    // 移动构造函数
+    MyClass(MyClass&& other) noexcept {
+        // 从other"窃取"资源
+        // 将other置于有效但可析构的状态
+    }
+};
 ```
 
 **移动构造函数**：
