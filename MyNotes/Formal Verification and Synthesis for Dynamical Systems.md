@@ -1,5 +1,5 @@
-# Formal Verification and Synthesis for Dynamical Systems
-# --A Temporal-Logic-Based Approach
+#                                          --A Temporal-Logic-Based Approach
+
 
 ## What is Dynamical System
  Discrete-Time Dynamical System :
@@ -25,3 +25,4 @@ $$
 - ✓ The evolution of the state is determined by a dynamic function.
 - ✓
 
+## Linear-Time Property
