@@ -1,4 +1,5 @@
-Formal Verification and Synthesis for Dynamical Systems(A Temporal-Logic-Based Approach)
+# Formal Verification and Synthesis for Dynamical Systems
+# --A Temporal-Logic-Based Approach
 
 ## What is Dynamical System
  Discrete-Time Dynamical System :
@@ -19,9 +20,8 @@ D:
 y(t) = g(x(t), u(t), v(t))
 \end{cases}
 $$
-
-
-
-### Key Points:
+ Key Points:
 - ✓ The system has a state space that may contain an infinite number of states.  
 - ✓ The evolution of the state is determined by a dynamic function.
+- ✓
+
