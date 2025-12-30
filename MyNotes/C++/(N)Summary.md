@@ -4,10 +4,11 @@
 \<cstring\> strcpy strlen
 \<cctype\> toupper
 \<cstdio\> printf scanf
-\<cmath\> [[Summary#cmath| CMATH]]
+\<cmath\> [[(N)Summary#cmath| CMATH]]
 \<random\>
 \<ctime\>
 \<vector\> 动态数组
+\<cassert\>
 万能头文件：#include \<bits/stdc++.h\>
 # cmath
 
