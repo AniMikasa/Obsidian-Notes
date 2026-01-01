@@ -82,12 +82,13 @@ Obtain CNF/DNF by Logical Equivalence
 
 
 
-Proof by Rules of Inferences
+Proof by Rules of Inferences:
+$(P → Q) ∧ P ⇒ Q$
 The following four statements are equivalent:
 1. $α ⇒ β$
 2. $α → β$ is a tautology
-3. $α ∧ ¬β$ is a contradiction
-4.  $¬β ⇒ ¬α$
+3. $α ∧ ¬β$ is a contradiction (proof by contradiction 反证法)
+4.  $¬β ⇒ ¬α$ (proof by contraposition 换位证明)
 
 
 
