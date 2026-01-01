@@ -23,40 +23,30 @@ C++把输入输出看成是一个数据流：输出流是内存流向外围设�
 ```
 
 ```mermaid
-graph TD
-    ios
-    ios --> istream
-    ios --> ostream
+---
+title: C++ 流类继承关系
+---
+classDiagram
+    class ios
+    class istream
+    class ostream
+    class iostream
+    class istringstream
+    class ifstream
+    class ostringstream
+    class ofstream
+    class fstream
+    class stringstream
     
-    istream --> iostream
-    ostream --> iostream
-    
-    istream --> istringstream
-    istream --> ifstream
-    
-    ostream --> ostringstream
-    ostream --> ofstream
-    
-    iostream --> stringstream
-    iostream --> fstream
-    
-    % 调整位置使其更接近原图
-    subgraph 左侧输入相关
-        istringstream
-        ifstream
-    end
-    
-    subgraph 中间组合类
-        iostream
-    end
-    
-    subgraph 右侧输出相关
-        ostringstream
-        ofstream
-    end
-    
-    subgraph 底部组合派生
-        stringstream
-        fstream
-    end
+    ios <|-- istream
+    ios <|-- ostream
+    istream <|-- iostream
+    ostream <|-- iostream
+    istream <|-- istringstream
+    istream <|-- ifstream
+    ostream <|-- ostringstream
+    ostream <|-- ofstream
+    iostream <|-- fstream
+    iostream <|-- stringstream
 ```
+
