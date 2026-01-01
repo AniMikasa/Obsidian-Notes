@@ -54,7 +54,27 @@ $P ∨ ¬P = P → P = (P → Q) ∨ ¬P = T$
 $P ∧ ¬P = (P → ¬P) ∧ P = (P → Q) ∧ P ∧ ¬Q = F$
 
 Logical Equivalence Theorem:
-For any two propositions α, β, we have α = β iff α ↔ β is a tautology
+For any two propositions α, β, we have $α = β$ iff $α ↔ β$ is a tautology
+
+
+$P ∨ Q =Q ∨ P$
+$P ∧ Q =Q ∧ P$
+$P ↔ Q =Q ↔ P$
+$(P ∨ Q) ∨ R =P ∨ (Q ∨ R)$
+$(P ∧ Q) ∧ R =P ∧ (Q ∧ R)$
+$(P ↔ Q) ↔ R =P ↔ (Q ↔ R)$
+$P ∨ (Q ∧ R) =(P ∨ Q) ∧ (P ∨ R)$
+$P ∧ (Q ∨ R) =(P ∧ Q) ∨ (P ∧ R)$
+$P → (Q → R) =(P → Q) → (P → R)$
+$¬(P ∨ Q) =¬P ∧ ¬Q$
+$¬(P ∧ Q) =¬P ∨ ¬Q$
+$P ∨ (P ∧ Q) =P$
+$P ∧ (P ∨ Q) =P$
+
+
+## **Important Proofs**
+
 
 ## **Examples**
 Boolean satisfiability problem (SAT) is one of the most fundamentally important problems.This problem can be solve by testing all $2^n$ possible assignments. However, this is very inefficient (but avoidable because it has been proved to be NP-hard).
+
