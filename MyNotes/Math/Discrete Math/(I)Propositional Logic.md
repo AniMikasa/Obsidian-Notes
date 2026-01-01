@@ -18,6 +18,17 @@ exclusive(异或) denoted by P ⊕ Q. Specifically, P ⊕ Q is true iff the trut
 
 Let P and Q be two propositions. Then P → Q is a new compound proposition such that it is false iff P is true and Q is false.
 
+Similarly, we can also define the bi-conditional statement (双条件) P ↔ Q such that it is true iff the truth values of P and Q are the same.
+
+WFF: Well-formed formulas are defined inductively as follows:
+1. Each propositional variable is a WFF.
+2. If α is a formula, then ¬α is a WFF.
+3. If α and β are WFFs, and • is any binary logical operator, then (α • β) is a WFF, where • could be (not limited to) the usual operators ¬, ∧, ∨, → or ↔.
+
+
+
 **Method**:
 draw truth table (真值表), to show how the truth value of the compound proposition changes
 when the truth values of the atomic propositions in it change.
+
+**Property**：
