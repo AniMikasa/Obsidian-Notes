@@ -642,9 +642,10 @@ int main()
 从代码清单14-9中的程序运行结果可以看出，用流插入运算符改写文件的数据可能会破坏文件中其他的数据。例如，程序的原意可能只是想把6修改成20，但修改后的20却与原来的7连在一起变成了207。因此想要修改文件的内容，用这种方法是非常危险的。如果读写的是二进制文件，则不会有这样的问题，因为每个整数占用的空间是固定的。
 
 例14.3   将例14.2生成的文件中的6改写为20，输出改写后的文件内容
-此例中对文件既要读又要写，于是定义了一个fstream的对象。打开文件后，先将写文件定位指针定位到存储6的位置。由于每个整数占4字节，6前面有5个整数，6的存储位置是`5*4`，于是将写文件定位指针定位到这个位置。用write函数写入20，这样20就覆盖了原来存储6的空间。重新读文件，6就被20取代了。具体的程序如代码清单14-10所示。
+此例中对文件既要读又要写，于是定义了一个fstream的对象。打开文件后，先将写文件定位指针定位到存储6的位置。由于每个整数占4字节，6前面有5个整数，6的存储位置是`5*4`，于是将写文件定位指针定位到这个位置。用write函数写入20，这样20就覆盖了原来存储6的空间。重新读文件，6就被20取代了。具体的程序如代码清单14-10所示
 
 代码清单14-10 二进制文件的随机访问
+```cpp
 //文件名：14-10.cpp
 #include <iostream>
 #include <fstream> //使用文件操作必须包含fstream
@@ -652,33 +653,31 @@ using namespace std;
 
 int main()
 {
-
-===== Page 9 =====
-
-# C++程序设计——思想与方法（蓝图版）（第4版）
-
-fstream io("D:\file");
-int i;
-
-//改写6为20
-io.seekp(5 * sizeof(int));
-i = 20;
-io.write(reinterpret_cast<char *>(&i), sizeof(int)); //修改6为20
-
-//重新读文件
-io.seekg(0); //读文件定位指针定位到文件开始处
-io.read(reinterpret_cast<char *>(&i), sizeof(int));
-while (!io.eof()) {
-    cout << i << '';
-    io.read(reinterpret_cast<char *>(&i), sizeof(int));
+	fstream io("D:\\file");
+	int i;
+	
+	//改写6为20
+	io.seekp(5 * sizeof(int));
+	i = 20;
+	io.write(reinterpret_cast<char *>(&i), sizeof(int)); //修改6为20
+	
+	//重新读文件
+	io.seekg(0); //读文件定位指针定位到文件开始处
+	io.read(reinterpret_cast<char *>(&i), sizeof(int));
+	while (!io.eof()) {
+	    cout << i << '';
+	    io.read(reinterpret_cast<char *>(&i), sizeof(int));
+	}
+	io.close();
+	return 0;
 }
-io.close();
-return 0;
-
+```
 程序的输出结果如下：
-12345678910
+```
+1 2 3 4 5 6 7 8 9 10
+```
 
-## 14.4.6 用流式文件处理含有记录的文件
+### 用流式文件处理含有记录的文件
 
 信息系统中用到的文件一般都有记录的概念，如图书馆系统中的书目文件。C++只支持流式文件，访问具有记录概念的文件需要应用程序自己解决。
 
@@ -690,12 +689,10 @@ return 0;
 
 添加书的时候，需要自动生成储藏号，此时必须知道图书的藏书量。如何获取藏书量？有很多方法，我们可以将它保存在一个文件中。一般每个文件保存一类信息，但专门用一个文件保存一个信息有点浪费。为此也可以将它存放在book文件最开始处，即book文件中先存放一个表示藏书量的整型数，然后是一本书的信息。事实上，藏书量也可以不保存，它可以从文件book长度除以每本书的长度得到。
 
-===== Page 10 =====
-
 按照面向对象程序设计思想，程序员在设计一个软件时首先要考虑需要哪些工具。那么，这个软件需要哪些工具呢？这个软件主要处理的对象是“书”，如果能有一个处理“书”的工具，则软件必须简单许多。因此，这里应该为这个系统设计一个书目录，用以处理一本书的信息。根据题意，保存一本书需要保存3个信息，因此这个类有3个数据成员：储藏号、书名和借书标记。对于每一本书，除了构造函数外，可能的操作有借书、还书、显示书的详细信息。根据上述考虑设计的类如代码清单14-11所示。
 
 代码清单14-11 book类的设计与实现
-
+```cpp
 //文件名: book.h
 //Book类的设计
 #ifndef book_h
@@ -721,11 +718,12 @@ public:
 };
 
 #endif
+```
 
 有了合适的工具后，就可以着手整个系统的设计。整个系统由五大功能组成，一般将每个功能定义成一个函数。主函数显示一个功能菜单，并根据用户选择的项目执行相应的函数。main函数的实现如代码清单14-12所示。
 
 代码清单14-12 图书馆系统的主函数
-
+```cpp
 //文件名: main.cpp
 #include "book.h"
 void initialize(); //系统初始化
@@ -746,58 +744,59 @@ int main()
     cout << "4 -- 还书\n";
     cout << "5 -- 显示所有书目信息\n";
     cout << "请选择(0-5): "; cin >> selector;
-
-===== Page 11 =====
-
-C++程序设计——思想与方法（慕课版）（第4版）
-
-if (selector == 0) break;
-switch (selector) {
-    case 1: initialize(); break;
-    case 2: addBook(); break;
-    case 3: borrowBook(); break;
-    case 4: returnBook(); break;
-    case 5: displayBook(); break;
-
-return 0;
+	if (selector == 0) break;
+	switch (selector) {
+	    case 1: initialize(); break;
+	    case 2: addBook(); break;
+	    case 3: borrowBook(); break;
+	    case 4: returnBook(); break;
+	    case 5: displayBook(); break;
+	
+	return 0;
+}
+```
 
 每个功能的实现都非常简单，不需要再继续分解。系统初始化将书目文件清空，这只需要以输出方式打开book文件，然后立即关闭。系统初始化函数的实现如代码清单14-13所示。
 
 代码清单14-13 系统初始化函数的实现
+```cpp
 void initialize()
 {
     ofstream outfile("book"); //清空文件book
     outfile.close();
 }
-
+```
 添加新书功能将新人库中的信息添加到文件尾，因此以app模式打开文件。先计算藏书量，然后将用户输入的书名作为参数生成一个Book类的对象，用write函数写入文件末尾。添加新书的实现如代码清单14-14所示。
 
 代码清单14-14 添加新书的实现
+```cpp
 void addBook()
 {
     char ch[20];
-    Book "bp;
+    Book bp;
     ofstream outfile("book", ofstream::app | ofstream::ate | ofstream::binary);
 
     //计算值编号
     long int no = outfile.tellp() / sizeof(Book) + 1;
 
     //生成需要添加的新书
-    cout << "请输入书名：");
+    cout << "请输入书名：";
     cin >> ch;
     bp = new Book(ch, no);
 
     //将书目信息添加到文件
-    outfile.write('reinterpret_cast<const char *>(bp), sizeof(*bp));
+    outfile.write(reinterpret_cast<const char *>(bp), sizeof(*bp));
     delete bp;
 
     outfile.close();
 
 }
+```
 
 当用户要借书的时候，需要输入储藏号和读者的借书证号。根据储藏号从文件中读取相应的图书记录，更新借书记录字段，将记录重新写回文件。因此，在这个函数中，文件要能读能写，程序定义了一个fstream类的对象与之关联。由于此文件中每条记录的长度是定长的，因此，可以方便地定位到所要读写的记录。借书函数的实现如代码清单14-15所示。
 
 代码清单14-15 借书函数的实现
+```cpp
 void borrowBook()
 {
     int bookNo, readerNo;
@@ -807,10 +806,6 @@ void borrowBook()
     cout << "请输入书号和读者号：");
     cin >> bookNo >> readerNo;
 
-===== Page 12 =====
-
-第14章 输入输出与文件
-
     iofile.seekg((bookNo - 1) * sizeof(Book)); //按照前缀号定位到所读记录
     iofile.read(reinterpret_cast<char *>(&bk), sizeof(Book));
     //读一条记录，存入对象bk
@@ -818,7 +813,8 @@ void borrowBook()
     iofile.seekp((bookNo - 1) * sizeof(Book)); //按照前缀号定位到所写记录
     iofile.write(reinterpret_cast<const char *>(&bk), sizeof(Book)); //更新记录
     iofile.close();
-
+}
+```
     还书函数的实现与借书函数的实现类似，如代码清单14-16所示。
     代码清单14-16 还书函数的实现
     void returnBook()
