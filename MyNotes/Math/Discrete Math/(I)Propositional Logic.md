@@ -44,6 +44,9 @@ Let $α$ and $β$ be two compound proposition formulas over variables $P_1, . . 
 Let α be a formula involving only $¬, ∨, ∧$. We define two new formulas:
 	• $α^∗$(对偶式) is obtained by replacing $∨, ∧$, $T$ and $F$ by $∧, ∨$, $F$ and $T$, respectively;
 	• $α^−$ is obtained by replacing each variable $Pi$ by $¬Pi$ .
+
+Let C be a set of logical operators. Then we say that C is functionally complete if we can express any truth table using only operators in C.
+
 ## **Methods**
 draw truth table (真值表), to show how the truth value of the compound proposition changes
 when the truth values of the atomic propositions in it change.
@@ -62,7 +65,6 @@ $P ∧ ¬P = (P → ¬P) ∧ P = (P → Q) ∧ P ∧ ¬Q = F$
 
 Logical Equivalence Theorem:
 For any two propositions $α$, $β$, we have $α = β$ iff $α ↔ β$ is a tautology
-
 
 $P ∨ Q =Q ∨ P$
 $P ∧ Q =Q ∧ P$
