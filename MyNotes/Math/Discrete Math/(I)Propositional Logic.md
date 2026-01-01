@@ -74,7 +74,12 @@ $P ∨ (P ∧ Q) =P$
 $P ∧ (P ∨ Q) =P$
 
 generalized De Morgan’s Law:    $¬α = (α ∗ )^−$
-If α → β is a tautology, then β ∗ → α ∗ is a tautology.
+If $α → β$ is a tautology, then $β^∗ → α^∗$ is a tautology.
+If $α = β$, then $α^∗ = β^∗$ .
+
+
+
+
 ## **Important Proofs**
 De Morgan’s Law: prove by induction on the number of operators.
 
