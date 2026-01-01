@@ -45,7 +45,15 @@ Let α be a formula involving only $¬, ∨, ∧$. We define two new formulas:
 	• $α^∗$(对偶式) is obtained by replacing $∨, ∧$, $T$ and $F$ by $∧, ∨$, $F$ and $T$, respectively;
 	• $α^−$ is obtained by replacing each variable $Pi$ by $¬Pi$ .
 
-Let C be a set of logical operators. Then we say that C is functionally complete if we can express any truth table using only operators in C.
+Let C be a set of logical operators. Then we say that C is functionally complete if we can express any truth table using only operators in C.For example, since P ∧ Q = ¬(¬P ∨ ¬Q), we know that {¬, ∨} is also complete.
+
+To express a formula in a better structured manner, which we call normal forms (范式).
+Conjunctive Normal Form (合取范式/CNF):
+	(• ∨ · · · ∨ •) ∧ (• ∨ · · · ∨ •) ∧ · · · ∧ (• ∨ · · · ∨ •)
+Disjunctive Normal Form (析取范式/DNF):
+	(• ∧ · · · ∧ •) ∨ (• ∧ · · · ∧ •) ∨ · · · ∨ (• ∧ · · · ∧ •)
+
+
 
 ## **Methods**
 draw truth table (真值表), to show how the truth value of the compound proposition changes
@@ -54,6 +62,7 @@ when the truth values of the atomic propositions in it change.
 From Truth Tables to Formulas:
 - Write from each True assignment
 - Write from each False assignment
+
 
 
 ## **Properties and Theorems**
@@ -90,6 +99,8 @@ If $α = β$, then $α^∗ = β^∗$ .
 
 ## **Important Proofs**
 De Morgan’s Law: prove by induction on the number of operators.
+
+
 
 ## **Examples**
 Boolean satisfiability problem (SAT) is one of the most fundamentally important problems.This problem can be solve by testing all $2^n$ possible assignments. However, this is very inefficient (but avoidable because it has been proved to be NP-hard).
