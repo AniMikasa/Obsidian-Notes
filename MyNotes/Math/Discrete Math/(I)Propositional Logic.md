@@ -39,6 +39,9 @@ A compound proposition formula is said to be
 	• satisfiable (可满足的) if it is true under some assignment;
 	• a contradiction (矛盾式) if it is false under any assignment.
 
+Let $α$ and $β$ be two compound proposition formulas over variables $P_1, . . . , P_n$. If the truth values of $α$ and $β$ are the same under any assignment, then α and β are said to be logical equivalent (等值/逻辑等价), denoted by $α ⇔ β$ or $α = β$.
+
+
 **Method**:
 draw truth table (真值表), to show how the truth value of the compound proposition changes
 when the truth values of the atomic propositions in it change.
