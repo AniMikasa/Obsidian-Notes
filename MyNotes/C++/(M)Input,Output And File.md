@@ -128,9 +128,8 @@ int main() {
     return 0;
 }
 ```
-
+```
 输出结果：
-
 Enter grade (enter end-of-file to end): 67  
 Enter grade (enter end-of-file to end): 87  
 Enter grade (enter end of file to end): 73  
@@ -139,59 +138,31 @@ Enter grade (enter end-of-file to end): 34
 Enter grade (enter end-of-file to end): 99  
 Entergrade (enter end-of-file to end): ^z  
 Heightest grade is: 99
+```
 
-
-[file content end]
-
-[file name]: 截屏2026-01-01 14.18.33.png
-[file content begin]
-# 成员函数get
-
-- get函数用于读入字符或字符串。
-- get函数有三种格式：
-  - 不带参数    istream::get() | ch = cin.get()
-  - 带一个参数    istream::get(char&) | cin.get (ch)
-  - 带三个参数    istream::get(char[], int, char='\n') | cin.get (arr, 10)
-
-
-[file content end]
-
-[file name]: 截屏2026-01-01 14.18.43.png
-[file content begin]
-# 不带参数的get函数
-
-- 不带参数的get函数从当前对象读入一个字符，包括空白字符以及表示文件结束的EOF，并将读入值作为函数的返回值。如下列语句：
+**get**:
+get函数用于读入字符或字符串
+get函数有三种格式：
+	不带参数   ` istream::get() | ch = cin.get()`;
+	带一个参数    `istream::get(char&) | cin.get (ch)`;
+	带三个参数` istream::get(char[], int, char='\n') | cin.get (arr, 10)`
+	
+不带参数的get函数:不带参数的get函数从当前对象读入一个字符，包括空白字符以及表示文件结束的EOF，并将读入值作为函数的返回值。如下列语句：
+  ```
   while ( (ch = cin.get()) != EOF ) cout<< ch;
-  将输入的字符输出在显示器上，直到输入EOF。
+  ```
+将输入的字符输出在显示器上，直到输入EOF。
 
-
-[file content end]
-
-[file name]: 截屏2026-01-01 14.19.04.png
-[file content begin]
-带一个参数的get函数
-
-- 带一个字符类型的引用参数，它将输入流中的下一字符（包括空白字符）存储在参数中，它的返回值是当前对象的引用。
-- 例如，下面的循环语句将输入一个字符串，存入字符数组ch，直到输入回车。
-
+带一个参数的get函数: 带一个字符类型的引用参数，它将输入流中的下一字符（包括空白字符）存储在参数中，它的返回值是当前对象的引用。例如，下面的循环语句将输入一个字符串，存入字符数组ch，直到输入回车
+```cpp
 cin.get(ch[0]);
 
 for (i = 0; ch[i] != '\n'; ++i) cin.get(ch[i+1]);
 
 ch[i] = '\0';
+```
 
+带三个参数的get函数: 参数分别是接收字符的字符数组、字符数组的大小和分隔符（默认值为‘\n’）。该函数可以在读取比指定的最大字符数少一个字符后结束，也可以在遇到分隔符时结束。
+为使字符数组（被程序用作缓冲区）中的输入字符串能够结束，空字符会被插入到字符数组中。函数不把分隔符放到字符数组中，但是分隔符仍然会保留在输入流中。
 
-[file content end]
-
-[file name]: 截屏2026-01-01 14.19.26.png
-[file content begin]
-带三个参数的get函数
-
-➢ 参数分别是接收字符的字符数组、字符数组的大小和分隔符（默认值为‘\n’）。
-
-➢ 该函数可以在读取比指定的最大字符数少一个字符后结束，也可以在遇到分隔符时结束。
-
-➢ 为使字符数组（被程序用作缓冲区）中的输入字符串能够结束，空字符会被插入到字符数组中。函数不把分隔符放到字符数组中，但是分隔符仍然会保留在输入流中。
-
-
-[file content end]
+**`getline`**：略 
