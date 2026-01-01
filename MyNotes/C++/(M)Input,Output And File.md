@@ -166,3 +166,150 @@ ch[i] = '\0';
 为使字符数组（被程序用作缓冲区）中的输入字符串能够结束，空字符会被插入到字符数组中。函数不把分隔符放到字符数组中，但是分隔符仍然会保留在输入流中。
 
 **`getline`**：略 
+
+**使用read函数输入**：
+调用成员函数read可实现无格式输入。它有两个参数。第一个参数是一个指向字符的指针，第二个参数是一个整型值。这个函数把一定量的字节从输入缓冲区读入字符数组，不管这些字节包含的是什么内容。
+```cpp
+char buffer[80];
+cin.read(buffer, 10);  // 读入10个字节，放入buffer
+```
+
+直接读取原始字节，不做任何转换，包括空白字符、控制字符等。如果还没读到指定的字符数就遇到了EOF，则读操作结束。可用成员函数gcount统计实际输入的字符个数
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    char buffer[80];
+    cout << "Enter a sentence:\n";
+    cin.read(buffer, 20);                // 尝试读取20个字符
+    cout << "一共输入了" << cin.gcount() << "个字符\n";
+    cout << "\nThe sentence entered was:\n";
+    cout.write(buffer, cin.gcount());    // 输出实际读取的字符
+    cout << endl;
+    return 0;
+}
+```
+```
+输入：
+Using the read, write, and gcount member functions
+
+输出：
+Enter a sentence:
+Using the read, write, and gcount member functions
+一共输入了20个字符
+The sentence entered was:
+Using the read, write
+```
+注意，read函数不会自动在末尾添加空字符；gcount返回最近一次无格式输入操作读取的字符数
+
+**格式化输入/输出**：
+C++提供了大量的用于执行格式化输入/输出的流操纵算子和成员函数。
+主要功能：
+	整数流的基数：dec、oct、hex和setbase
+	设置浮点数精度：precision、setprecision
+	设置域宽：setw、width
+	设置域填充字符：fill、setfill
+
+设置整型数的基数：
+基本操纵符：
+- 默认：十进制表示
+- `hex`：将基数设为十六进制
+- `oct`：将基数设为八进制  
+- `dec`：将基数重新设为十进制
+
+### setbase流操纵符
+- 参数值：16、10或8
+- 使用带参数的流操纵符需要包含头文件 `<iomanip>`
+- 注意：基数设置会一直保持，直到显式更改
+
+### 示例程序
+```cpp
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Enter an octal number: ";
+    cin >> oct >> n;  // 以八进制格式输入
+    cout << "octal " << oct << n << " in hexadecimal is:" << hex << n << '\n';
+    cout << "hexdecimal " << n << " in decimal is:" << dec << n << '\n';
+    cout << setbase(8) << "octal " << n <<" in octal is:" << n << endl;
+    return 0;
+}
+```
+
+### 运行结果
+```
+Enter an octal number: 30
+Octal 30 in hexadecimal is: 18
+Hexadecimal 18 in decimal is: 24
+Octal 30 in octal is: 30
+```
+
+**解释**：30(八进制) = 18(十六进制) = 24(十进制)
+
+## 2. 设置浮点数精度
+
+### 方法
+- 流操纵符 `setprecision`
+- 成员函数 `precision()`
+- 影响所有后续输出的浮点数，直到下一次精度设置
+
+### 示例程序1：逐步降低精度
+```cpp
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double x = 123.456789, y = 9876.54321;
+
+    for (int i = 9; i > 0; --i) { 
+        cout.precision(i); 
+        cout << x << '\t' << y << endl; 
+    }
+    // 等价于:
+    // for (int i = 9; i > 0; --i) 
+    //     cout << setprecision(i) << x << '\t' << y << endl;
+
+    return 0;
+}
+```
+
+### 输出结果
+```
+123.456789  9876.54321
+123.45679  9876.5432
+123.4568  9876.543
+123.457  9876.54
+123.46  9876.5
+123.5  9877
+123   9.88e+003
+1.2e+002  9.9e+003
+1e+002  1e+004
+```
+
+### 示例程序2：fixed模式设置小数点后位数
+```cpp
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double x = 123.456789, y = 9876.54321;
+
+    cout << fixed << setprecision(2) << x << '\t' << y << endl;
+    cout << fixed << setprecision(3) << x << '\t' << y << endl;
+    // 加上fixed之后，setprecision的参数表示小数点后取几位
+
+    return 0;
+}
+```
+
+## 重要区别
+- **默认模式**：`setprecision(n)` 表示总有效位数
+- **fixed模式**：`fixed << setprecision(n)` 表示小数点后n位
+- **scientific模式**：科学计数法格式
