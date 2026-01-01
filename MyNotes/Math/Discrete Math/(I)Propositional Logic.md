@@ -47,12 +47,13 @@ Let α be a formula involving only $¬, ∨, ∧$. We define two new formulas:
 
 Let C be a set of logical operators. Then we say that C is functionally complete if we can express any truth table using only operators in C.For example, since P ∧ Q = ¬(¬P ∨ ¬Q), we know that {¬, ∨} is also complete.
 
-To express a formula in a better structured manner, which we call normal forms (范式).
+To express a formula in a better structured manner, which we call **normal forms** (范式).
 Conjunctive Normal Form (合取范式/CNF):
 	(• ∨ · · · ∨ •) ∧ (• ∨ · · · ∨ •) ∧ · · · ∧ (• ∨ · · · ∨ •)
 Disjunctive Normal Form (析取范式/DNF):
 	(• ∧ · · · ∧ •) ∨ (• ∧ · · · ∧ •) ∨ · · · ∨ (• ∧ · · · ∧ •)
 
+Let α and β be two compound proposition formulas. We say α **tautologically implies** β, or β is the logical conclusion of α, denoted by α ⇒ β, if β is true whenever α is true.
 
 
 ## **Methods**
@@ -82,6 +83,15 @@ Obtain CNF/DNF by Logical Equivalence
 
 
 Proof by Rules of Inferences
+The following four statements are equivalent:
+1. $α ⇒ β$
+2. $α → β$ is a tautology
+3. $α ∧ ¬β$ is a contradiction
+4.  $¬β ⇒ ¬α$
+
+
+
+
 Proof by Resolutions
 
 ## **Properties and Theorems**
