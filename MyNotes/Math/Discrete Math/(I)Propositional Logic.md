@@ -43,4 +43,8 @@ A compound proposition formula is said to be
 draw truth table (真值表), to show how the truth value of the compound proposition changes
 when the truth values of the atomic propositions in it change.
 
-**Property**：
+**Properties**：
+
+
+**Examples:**
+Boolean satisfiability problem (SAT) is one of the most fundamentally important problems.This problem can be solve by testing all $2^n$ possible assignments. However, this is very inefficient (but avoidable because it has been proved to be NP-hard).
