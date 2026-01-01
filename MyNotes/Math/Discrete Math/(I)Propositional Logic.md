@@ -30,8 +30,14 @@ Some Simplification Rules for WFFs：
 - (¬P) can be simplified as ¬P, e.g., (¬(Q∧(¬P))) can be written as ¬(Q → ¬P).
 - We can always omit (·) by understanding the precedence (优先级) of the operators. Commonly, we assume precedence in following order ¬, ∧, ∨,→,↔ and for the same operator from left to right. 
 
-The truth value of formula α is determined by the assignments (指派) of $P_1, . . . , P_n$.Specifically, a truth assignment is a vector $I = (v_1, . . . , v_n)$, where each vi is either 0 or 1.
+The truth value of formula α is determined by the assignments (指派) of $P_1, . . . , P_n$.Specifically, a truth assignment is a vector $I = (v_1, . . . , v_n)$, where each $v_i$ is either 0 or 1.
 
+Given a formula α and an assignment $I = (v_1, . . . , v_n)$, we write $I |= α$ if it is true under assignment $I$.
+
+A compound proposition formula is said to be
+	• a tautology (重言式) if it is true under any assignment;
+	• satisfiable (可满足的) if it is true under some assignment;
+	• a contradiction (矛盾式) if it is false under any assignment.
 
 **Method**:
 draw truth table (真值表), to show how the truth value of the compound proposition changes
