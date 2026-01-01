@@ -20,11 +20,17 @@ Let P and Q be two propositions. Then P → Q is a new compound proposition such
 
 Similarly, we can also define the bi-conditional statement (双条件) P ↔ Q such that it is true iff the truth values of P and Q are the same.
 
-WFF: Well-formed formulas are defined inductively as follows:
+WFF:
+Well-formed formulas are defined inductively as follows:
 1. Each propositional variable is a WFF.
 2. If α is a formula, then ¬α is a WFF.
 3. If α and β are WFFs, and • is any binary logical operator, then (α • β) is a WFF, where • could be (not limited to) the usual operators ¬, ∧, ∨, → or ↔.
+Some Simplification Rules for WFFs：
+-  Outside (·) can always be omitted, e.g., (P → Q) can be written as P → Q.
+- (¬P) can be simplified as ¬P, e.g., (¬(Q∧(¬P))) can be written as ¬(Q → ¬P).
+- We can always omit (·) by understanding the precedence (优先级) of the operators. Commonly, we assume precedence in following order ¬, ∧, ∨,→,↔ and for the same operator from left to right. 
 
+The truth value of formula α is determined by the assignments (指派) of $P_1, . . . , P_n$.Specifically, a truth assignment is a vector $I = (v_1, . . . , v_n)$, where each vi is either 0 or 1.
 
 
 **Method**:
