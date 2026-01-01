@@ -543,61 +543,62 @@ fin >> i >> x; fin.getline(s, 80, '\n');
 ```
 能够得到正确的结果。
 
-**二进制文件的访问**:
-二进制文件读写是在在文件中与内存间进行数据交换，其中没有任何转换。按交换内存和文件中的数据可用read函数和write函数。
-read函数从输入流对象读入若干字节写入内存的某个地址。它有两个参数：
-一个参数是一个指向字符的指针，表示存人的内存地址；第二个参数是一个整数值，表示读人的字节数。read函数的原型为：
+### 二进制文件的访问
+二进制文件读写是在在文件中与内存间进行数据交换，其中没有任何转换。直接交换内存和文件中的数据可用read函数和write函数。
+read函数从输入流对象读入若干字节写入内存的某个地址。它有两个参数：一个参数是一个指向字符的指针，表示存人的内存地址；第二个参数是一个整数值，表示读入的字节数。read函数的原型为：
+```cpp
 read(char *addr, int size)
+```
 write函数将从内存的某个地址开始的若干字节写入输出流对象。它也有两个参数：第一个参数是一个指向字符的指针；第二个参数是一个整数值，表示写入文件的字节数。write函数的原型为：
+```cpp
 write(const char *addr, int size)
-    在用read函数读文件时，如何判断文件结束？答案是可以通过成员函数eof来实现。eof函数不需要参数，当读取作遇到文件结束时，该函数返回true，否则返回false。
+```
+在用read函数读文件时，如何判断文件结束？答案是可以通过成员函数eof来实现。eof函数不需要参数，当读取作遇到文件结束时，该函数返回true，否则返回false。但要注意的是eof函数必须要对EOF做一次读取才是true。
+
 例14.2 将整数1~10写入D盘根目录下的二进制文件file中，然后从file中读取这些数据，把它们输出到屏幕上。
 首先用输出方式打开文件file。如果文件file不存在，则自动创建一个，否则打开磁盘上名为file的文件，并清空。用一个循环依次将1~10通过write函数写入文件，并关闭文件。然后用输入方式打开文件file，用read函数读出所有数据，并输出到屏幕上。具体的程序如代码清单14-8所示。
+
 代码清单14-8 二进制文件的顺序读写
+```cpp
 //文件名: 14-8.cpp
 #include <iostream>
 #include <fstream>
 using namespace std;
 int main()
 {
-    ofstream out("D:\file", ofstream::binary);
+    ofstream out("D:\\file", ofstream::binary);
     ifstream in;
     int i;
     //将i~10写到输出流对象
     if (!out) { cerr << "create file error\n"; return 1; }
     for (i = 1; i <= 10; ++i) //将变量i的内置表示写入文件
-out.write(reinterpret_cast<char *>(&i), sizeof(int));
-out.close();
-in.open("Di:\file", ifstream::binary);
-if (!in) { cerr << "open file error\n"; return 1; }
-in.read(reinterpret_cast<char *>(&i), sizeof(int));
-while (!in.eof()) { //读文件，直到结束
-cout << i << " ";
-in.read(reinterpret_cast<char *>(&i), sizeof(int));
+	out.write(reinterpret_cast<char *>(&i), sizeof(int));
+	out.close();
+	in.open("Di:\\file", ifstream::binary);
+	if (!in) { cerr << "open file error\n"; return 1; }
+	in.read(reinterpret_cast<char *>(&i), sizeof(int));
+	while (!in.eof()) { //读文件，直到结束
+		cout << i << " ";
+		in.read(reinterpret_cast<char *>(&i), sizeof(int));
+	}
+	in.close();
+	cout << endl;
+	return 0;
 }
-in.close();
-cout << endl;
-return 0;
-}
+```
 
-上述程序有以下两点需要注意。
-第一个是文件名的表示。在 Windows 操作系统中，D 盘根目录下的文件 file 表示为 Di:file。但“\”是 C++ 的转义字符，“\”应写为 “\\”。
+上述程序有以下两点需要注意。第一个是文件名的表示。在 Windows 操作系统中，D 盘根目录下的文件 file 表示为 `D:\file`。但`\`是 C++ 的转义字符，`\`应写为 `\\`。第二个是 read 函数和 write 函数调用中的第一个参数。函数原型要求这个参数是一个指向字符的指针，但程序是将数据读入一个整型变量，所以需要将整型变量的地址强制转换成指向字符的指针。执行该程序后，文件 file 中的内容为整数 1~10 的补码，每个整数占 4 字节，文件大小是 40 字节。程序的输出结果如下：
+```
+12345678910
+```
 
-第二个是 read 函数和 write 函数调用中的第一个参数。函数原型要求这个参数是一个指向字符的指针，但程序是将数据读入一个整型变量，所以需要将整型变量的地址强制转换成指向字符的指针。
-执行该程序后，文件 file 中的内容为整数 1~10 的补码，每个整数占 4 字节，文件大小是 40 字节。程序的输出结果如下：
-
-\[12345678910\]
-
-14.4.5 文件的随机访问
-
+**文件的随机访问**：
 例 14.1 和例 14.2 都是将一组数据写入一个空文件，然后从头开始依次读入文件的每一个数据，这种访问方式称为顺序访问。大多数情况下，文件访问都是访问文件中的部分数据。读写文件中的部分数据称为文件的随机访问。
-
 如何读文件中的某个数据或改写某个数据呢？观察代码清单 14-8，在以输入方式打开文件后，第一次调用 read 函数读入了文件中最前面的 4 个字节，第二次调用 read 函数读入了文件的第 5 个字节到第 8 个字节。为什么 C++ 知道第二次读应该从第 5 个字节开始？这是因为每个文件流对象都保存下一次读写的位量，这个位置称为文件定位指针。文件定位指针是一个 long 型的数据，表示当前读写的是文件的第几个字节（从 0 开始编号）。当文件用 in 模式打开时，文件定位指针指向文件头，所以读文件时是从头开始读。当以 out 模式打开时，写文件定位指针也是定位在文件头，所以新写入的内容覆盖了文件中原有的信息。当文件用 app 模式打开时，写文件定位指针指向文件尾，写入文件的内容就被添加到了原文件的后面。
-
 ifstream 和 ofstream 分别提供了成员函数 telig 和 tellp 返回文件定位指针的当前位置。tellg 返回该文件定位指针，tellp 返回写文件定位指针。下列语句将输入文件 in 的定位指针值赋予 long 型变量 location:
-
+```cpp
 location = in.tellg();
-
+```
 当需要随机访问时，只需要将文件定位指针设置为需要读写的位置即可。ifstream 提供了一个函数 seekg，用于设置该文件的位置。ofstream 提供了一个函数 seekp，用于设置写文件的位置。seekg 和 seekp 函数都有两个参数：第一个参数为 long 型整数，表示偏移量；第二个参数指定指针移动的参考点，ios::beg (默认) 相对于流的开头，ios::cur 相对于文件定位指针的当前位置，ios::end 相对于流的结尾。例如，in.seekg(0)表示将该文件定位指针定位到输入流 in 的开始处，in.seekg(10,ios::cur)表示定位到输入流 in 当前位置后面的第 10 个字节。ios 是所有输入/输出流的基类。
 
 ===== Page 8 =====
