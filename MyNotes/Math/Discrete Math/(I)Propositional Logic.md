@@ -42,7 +42,7 @@ A compound proposition formula is said to be
 Let $α$ and $β$ be two compound proposition formulas over variables $P_1, . . . , P_n$. If the truth values of $α$ and $β$ are the same under any assignment, then α and β are said to be logical equivalent (等值/逻辑等价), denoted by $α ⇔ β$ or $α = β$.
 
 Let α be a formula involving only $¬, ∨, ∧$. We define two new formulas:
-	• $α^∗$ is obtained by replacing $∨, ∧$, $T$ and $F$ by $∧, ∨$, $F$ and $T$, respectively;
+	• $α^∗$(对偶式) is obtained by replacing $∨, ∧$, $T$ and $F$ by $∧, ∨$, $F$ and $T$, respectively;
 	• $α^−$ is obtained by replacing each variable $Pi$ by $¬Pi$ .
 ## **Methods**
 draw truth table (真值表), to show how the truth value of the compound proposition changes
@@ -73,7 +73,7 @@ $¬(P ∧ Q) =¬P ∨ ¬Q$
 $P ∨ (P ∧ Q) =P$
 $P ∧ (P ∨ Q) =P$
 
-generalized De Morgan’s Law:    $¬α = (α ∗ )^−$
+generalized De Morgan’s Law:    $¬α = (α^∗ )^−$
 If $α → β$ is a tautology, then $β^∗ → α^∗$ is a tautology.
 If $α = β$, then $α^∗ = β^∗$ .
 
