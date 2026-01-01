@@ -48,6 +48,11 @@ Let α be a formula involving only $¬, ∨, ∧$. We define two new formulas:
 draw truth table (真值表), to show how the truth value of the compound proposition changes
 when the truth values of the atomic propositions in it change.
 
+From Truth Tables to Formulas:
+- Write from each True assignment
+- Write from each False assignment
+
+
 ## **Properties and Theorems**
 
 $P → Q = ¬P ∨ Q$
@@ -74,6 +79,7 @@ $P ∨ (P ∧ Q) =P$
 $P ∧ (P ∨ Q) =P$
 
 generalized De Morgan’s Law:    $¬α = (α^∗ )^−$
+If $(β^∗ ) − → (α^∗ )^−$ is a tautology, then $β^∗ → α^∗$ is a tautology
 If $α → β$ is a tautology, then $β^∗ → α^∗$ is a tautology.
 If $α = β$, then $α^∗ = β^∗$ .
 
