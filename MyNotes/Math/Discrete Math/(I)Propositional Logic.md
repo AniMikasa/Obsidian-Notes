@@ -102,7 +102,9 @@ Here we discuss some commonly used inferences:
 	$(P → Q) ∧ (Q → R) ⇒ P → R$
 	$(P ↔ Q) ∧ (Q ↔ R) ⇒ P ↔ R$
 	$(P → R) ∧ (Q → S) ∧ (P ∨ Q) ⇒ R ∨ S$
-
+Sometimes, we may need to prove inference of form α1 ⇒ α2 → β. This suffices to prove
+α1 ∧ α2 ⇒ β and vice versa. Therefore, we can also use the premise in the conclusion as
+the actual premise. This is called the rule of conditional proof.
 
 
 Proof by Resolutions
