@@ -6,7 +6,7 @@ Those propositions composed by multiple atomic propositions and logical operator
 as “if snow is black, then 1 + 1 = 3”, are called compound propositions (复合命题).
 Those undetermined (atomic) propositions P, Q, R, . . . are called(atomic) propositional variables (命题变元).
 
-By putting propositional variables together using logical operators, we obtain a compound proposition formula (复合命题公式) such as P ∧ Q → R, ¬P ∨ Q.
+By putting propositional variables together using logical operators, we obtain a compound proposition formula (复合命题公式) such as $P ∧ Q → R$, $¬P ∨ Q$.
 
 Let P be a proposition. Then ¬P is a new compound proposition such that it is true iff P is false, where “iff” standards for “if and only if”.
 
@@ -41,7 +41,9 @@ A compound proposition formula is said to be
 
 Let $α$ and $β$ be two compound proposition formulas over variables $P_1, . . . , P_n$. If the truth values of $α$ and $β$ are the same under any assignment, then α and β are said to be logical equivalent (等值/逻辑等价), denoted by $α ⇔ β$ or $α = β$.
 
-
+Let α be a formula involving only $¬, ∨, ∧$. We define two new formulas:
+	• $α^∗$ is obtained by replacing $∨, ∧$, $T$ and $F$ by $∧, ∨$, $F$ and $T$, respectively;
+	• $α^−$ is obtained by replacing each variable $Pi$ by $¬Pi$ .
 ## **Methods**
 draw truth table (真值表), to show how the truth value of the compound proposition changes
 when the truth values of the atomic propositions in it change.
@@ -54,7 +56,7 @@ $P ∨ ¬P = P → P = (P → Q) ∨ ¬P = T$
 $P ∧ ¬P = (P → ¬P) ∧ P = (P → Q) ∧ P ∧ ¬Q = F$
 
 Logical Equivalence Theorem:
-For any two propositions α, β, we have $α = β$ iff $α ↔ β$ is a tautology
+For any two propositions $α$, $β$, we have $α = β$ iff $α ↔ β$ is a tautology
 
 
 $P ∨ Q =Q ∨ P$
@@ -71,7 +73,7 @@ $¬(P ∧ Q) =¬P ∨ ¬Q$
 $P ∨ (P ∧ Q) =P$
 $P ∧ (P ∨ Q) =P$
 
-
+generalized De Morgan’s Law:    $¬α = (α ∗ )^−$
 ## **Important Proofs**
 
 
