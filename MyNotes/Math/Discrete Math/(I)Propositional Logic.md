@@ -74,8 +74,9 @@ $P ∨ (P ∧ Q) =P$
 $P ∧ (P ∨ Q) =P$
 
 generalized De Morgan’s Law:    $¬α = (α ∗ )^−$
+If α → β is a tautology, then β ∗ → α ∗ is a tautology.
 ## **Important Proofs**
-
+De Morgan’s Law: prove by induction on the number of operators.
 
 ## **Examples**
 Boolean satisfiability problem (SAT) is one of the most fundamentally important problems.This problem can be solve by testing all $2^n$ possible assignments. However, this is very inefficient (but avoidable because it has been proved to be NP-hard).
