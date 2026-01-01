@@ -108,7 +108,10 @@ the actual premise. This is called the rule of conditional proof.
 
 
 Proof by Resolutions
-
+1. Convert α ∧ ¬β into CNF. For example,α ∧ ¬β = P ∧ (P ∨ R) ∧ (¬P ∨ ¬Q) ∧ (¬P ∨ R)
+2. Write down the set of all disjunction clauses in the CNF
+3. Resolve clause set S(Method: If S has two clauses of forms C1 = L ∨ C1 ′ and C2 = ¬L ∨ C2 ′ , then we can generate a new clause C1 ′ ∨ C2 ′ in S)
+4. Repeat until we find a contradiction, e.g., two clauses P and ¬P
 ## **Properties and Theorems**
 
 $P → Q = ¬P ∨ Q$
