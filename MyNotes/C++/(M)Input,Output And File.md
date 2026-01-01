@@ -815,10 +815,12 @@ void borrowBook()
     iofile.close();
 }
 ```
-    还书函数的实现与借书函数的实现类似，如代码清单14-16所示。
-    代码清单14-16 还书函数的实现
-    void returnBook()
-    {
+还书函数的实现与借书函数的实现类似，如代码清单14-16所示。
+
+代码清单14-16 还书函数的实现
+```cpp
+void returnBook()
+{
     int bookNo;
     fstream iofile("book", ofstream::binary );
     Book bk;
@@ -835,20 +837,26 @@ void borrowBook()
     iofile.write(reinterpret_cast<const char *>(&bk), sizeof(Book));
 
     iofile.close();
-    }
-    显示所有图书信息的程序非常简单，只要输出文件中的所有记录就可以了。具体的实现如代码清单14-17所示。
-    代码清单14-17 显示书目信息的实现
-    void displayBook()
-    {
+}
+ ```
+
+显示所有图书信息的程序非常简单，只要输出文件中的所有记录就可以了。具体的实现如代码清单14-17所示。
+
+代码清单14-17 显示书目信息的实现
+```cpp
+void displayBook()
+{
     ifstream infile("book", ofstream::binary);
     Book bk;
 
     infile.read(reinterpret_cast<char *>(&bk), sizeof(Book));
 
     while (!infile.eof()) { //按顺序读文件，直到结束
-    bk.display(); //显示当前书目的内容
-    infile.read(reinterpret_cast<char *>(&bk), sizeof(Book));
+	    bk.display(); //显示当前书目的内容
+	    infile.read(reinterpret_cast<char *>(&bk), sizeof(Book));
     } 
-    infile.close();
-    }
+    
+    infile.close();    
+}
+```
 
