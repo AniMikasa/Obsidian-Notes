@@ -89,7 +89,19 @@ The following four statements are equivalent:
 2. $α → β$ is a tautology
 3. $α ∧ ¬β$ is a contradiction (proof by contradiction 反证法)
 4.  $¬β ⇒ ¬α$ (proof by contraposition 换位证明)
-
+Here we discuss some commonly used inferences:
+	$P ∧ Q ⇒ P$
+	$P ⇒ P ∨ Q$
+	$¬P ⇒ P → Q$
+	$Q ⇒ P → Q$
+	$¬(P → Q) ⇒ P$
+	$¬(P → Q) ⇒ ¬Q$
+	$¬P ∧ (P ∨ Q) ⇒ Q$
+	$P ∧ (P → Q) ⇒ Q$              (Modus Ponens, 肯定前件)
+	$(P → Q) ∧ ¬Q ⇒ ¬P$         (Modus Tollens, 否定后件)
+	$(P → Q) ∧ (Q → R) ⇒ P → R$
+	$(P ↔ Q) ∧ (Q ↔ R) ⇒ P ↔ R$
+	$(P → R) ∧ (Q → S) ∧ (P ∨ Q) ⇒ R ∨ S$
 
 
 
