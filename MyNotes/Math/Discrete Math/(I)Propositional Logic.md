@@ -67,26 +67,17 @@ Obtain CNF/DNF by Logical Equivalence
 	 $α → β = ¬α ∨ β$
 	for DNF: $α ↔ β = (α ∧ β) ∨ (¬α ∧ ¬β)$
 	for CNF: $α ↔ β = (α ∨ ¬β) ∧ (¬α ∨ β)$
-
 2. ‘‘¬” runs into ‘‘( )” using the followings
 	$¬(α ∧ β) = ¬α ∨ ¬β$
 	$¬(α ∨ β) = ¬α ∧ ¬β$
-
 3. ‘‘ ∧ ” and ‘‘ ∨ ” run into ‘‘( )” using the followings
-
-1 for DNF: α ∧ (β ∨ γ) = (α ∧ β) ∨ (α ∧ γ)
-
-2 for CNF: α ∨ (β ∧ γ) = (α ∨ β) ∧ (α ∨ γ)
-
+	for DNF: $α ∧ (β ∨ γ) = (α ∧ β) ∨ (α ∧ γ)$
+	for CNF: $α ∨ (β ∧ γ) = (α ∨ β) ∧ (α ∨ γ)$
 4. Step 4: Simplify if needed using, e.g.,
-
-1 α ∧ F = F
-
-2 α ∨ F = α
-
-3 α ∨ T = T
-
-4 α ∧ T = α
+	$α ∧ F = F$
+	$α ∨ F = α$
+	$α ∨ T = T$
+	$α ∧ T = α$
 
 
 
