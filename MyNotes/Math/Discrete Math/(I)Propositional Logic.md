@@ -1,4 +1,4 @@
-**Definitions**:
+## **Definitions**
 A proposition is a declarative sentence/assertion that is either true or false(but not both).
 Those propositions that cannot be further decomposed are called atomic propositions (原子命题)
 
@@ -42,12 +42,19 @@ A compound proposition formula is said to be
 Let $α$ and $β$ be two compound proposition formulas over variables $P_1, . . . , P_n$. If the truth values of $α$ and $β$ are the same under any assignment, then α and β are said to be logical equivalent (等值/逻辑等价), denoted by $α ⇔ β$ or $α = β$.
 
 
-**Method**:
+## **Methods**
 draw truth table (真值表), to show how the truth value of the compound proposition changes
 when the truth values of the atomic propositions in it change.
 
-**Properties**：
+## **Properties and Theorems**
 
+$P → Q = ¬P ∨ Q$
+$P ∨ Q = ¬(¬P ∧ ¬Q)$
+$P ∨ ¬P = P → P = (P → Q) ∨ ¬P = T$
+$P ∧ ¬P = (P → ¬P) ∧ P = (P → Q) ∧ P ∧ ¬Q = F$
 
-**Examples:**
+Logical Equivalence Theorem:
+For any two propositions α, β, we have α = β iff α ↔ β is a tautology
+
+## **Examples**
 Boolean satisfiability problem (SAT) is one of the most fundamentally important problems.This problem can be solve by testing all $2^n$ possible assignments. However, this is very inefficient (but avoidable because it has been proved to be NP-hard).
