@@ -65,4 +65,4 @@ Now, given a set, we want to always be able to build a larger set (we will under
 Therefore, we have to introduce the Axiom of Infinity (无穷公理) that guarantees the existence of at least one infinite set, namely a set containing the natural numbers.
 Axiom of Regularity (正则公理) This axiom together with the axiom of pairing imply that no set is an element of itself, and that no infinite sequence $A_1, A_2, . . .$ such that $A_{i+1} ∈ A_i$ .
 
-## 
+## Relation
