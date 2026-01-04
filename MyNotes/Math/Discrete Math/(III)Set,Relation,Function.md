@@ -84,7 +84,7 @@ Let R ⊆ X × Y and S ⊆ Y × Z. Then,
 3. $(R^{−1} )^{−1}$ = R
 4. $(S ◦ R)^{−1} = R^{−1} ◦ S^{−1}$
 5. $(R∩S)^{−1}=R^{−1}∩S^{−1}$
-6. 
+6. $(R∪S)^{−1}=R^{−1}∪S^{−1}$
 
 Let $Q ⊆ X × Y, S ⊆ Y × Z$ and $R ⊆ Z × W$. Then $(R ◦ S) ◦ Q = R ◦ (S ◦ Q)$.
 
@@ -115,4 +115,12 @@ Properties Closed under Operations:
 2. If $R_1, R_2 ⊆ A × A$ are symmetric, then $R_1^{−1} , R_1 ∩ R_2, R_1 ∪ R_2$ are symmetric.
 3. If $R_1, R_2 ⊆ A × A$ are transitive, then $R_1^{−1} , R_1 ∩ R_2$ are transitive.
 4. If $R_1, R_2 ⊆ A × A$ are antisymmetric, then $R_1^{−1} , R_1 ∩ R_2$ are antisymmetric.
+
+
+Properties of Closures:
+1. If R is symmetric/reflexive/transitive, then s(R)=R or r(R)=R or t(R)=R.
+2. If $R_1 ⊆ R_2$, then $r (R_1) ⊆ r (R_2)$, $s (R_1) ⊆ s (R_2)$ and $t(R_1) ⊆ t(R_2)$
+3. $r (R_1) ∪ r (R_2) = r (R_1 ∪ R_2)$
+4. $s (R_1) ∪ s (R_2) = s (R_1 ∪ R_2)$
+5. $t(R_1) ∪ t(R_2) ⊆ t(R_1 ∪ R_2)$
 
