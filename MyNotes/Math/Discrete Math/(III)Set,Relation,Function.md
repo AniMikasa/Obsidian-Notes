@@ -51,7 +51,7 @@ For any two sets A, B and non-empty set C, we claim that the followings are equi
 2. A × C ⊆ B × C
 3. C × A ⊆ C × B
 
-Let A, B, C, D be non-empty sets. We have A × B ⊆ C × D iff A ⊆ C and B ⊆ D
+Let A, B, C, D be non-empty sets. We have $A × B ⊆ C × D$ iff $A ⊆ C$ and $B ⊆ D$
 
 
 we cannot just describe a set of things satisfying a predicate as a set without any restriction.The key idea for resolving this issue is that sets are constructed from axioms, which leads to the Axiomatic Set Theory(公理集合论).
@@ -83,21 +83,23 @@ Let R ⊆ X × Y and S ⊆ Y × Z. Then,
 2. ran ($R^{−1}$ ) = dom(R)
 3. $(R^{−1} )^{−1}$ = R
 4. $(S ◦ R)^{−1} = R^{−1} ◦ S^{−1}$
+5. $(R∩S)^{−1}=R^{−1}∩S^{−1}$
+6. 
 
 Let $Q ⊆ X × Y, S ⊆ Y × Z$ and $R ⊆ Z × W$. Then $(R ◦ S) ◦ Q = R ◦ (S ◦ Q)$.
 
 Distributive Laws for Composite:
-1. R ◦ (S ∪ W) = (R ◦ S) ∪ (R ◦ W)
-2. (R ∪ S) ◦ W = (R ◦ W) ∪ (S ◦ W)
-3. R ◦ (S ∩ W) ⊆ (R ◦ S) ∩ (R ◦ W)
-4. (R ∩ S) ◦ W ⊆ (R ◦ W) ∩ (S ◦ W)
+1. $R ◦ (S ∪ W) = (R ◦ S) ∪ (R ◦ W)$
+2. $(R ∪ S) ◦ W = (R ◦ W) ∪ (S ◦ W)$
+3. $R ◦ (S ∩ W) ⊆ (R ◦ S) ∩ (R ◦ W)$
+4. $(R ∩ S) ◦ W ⊆ (R ◦ W) ∩ (S ◦ W)$
 
 
-| 关系类型 | 自反  | 反自反 | 对称  | 反对称 | 传递  | 备注                             |
-| ---- | --- | --- | --- | --- | --- | ------------------------------ |
-| 空关系  | ✗   | ✓   | ✓   | ✓   | ✓   | A不是空集时空关系反自反；空集上既是自反又是反自反      |
-| 全域关系 | ✗   | ✗   | ✓   | ✗   | ✓   | 当\|A\| = 1时，全域关系就是恒等关系，因此是反对称的 |
-| 恒等关系 | ✓   | ✗   | ✓   | ✓   | ✓   |                                |
+| 关系类型 | 自反  | 反自反 | 对称  | 反对称 | 传递  | 备注                               |
+| ---- | --- | --- | --- | --- | --- | -------------------------------- |
+| 空关系  | ✗   | ✓   | ✓   | ✓   | ✓   | A不是空集时空关系反自反；空集上既是自反又是反自反        |
+| 全域关系 | ✗   | ✗   | ✓   | ✗   | ✓   | 当$\|A\| = 1$时，全域关系就是恒等关系，因此是反对称的 |
+| 恒等关系 | ✓   | ✗   | ✓   | ✓   | ✓   |                                  |
 
 
 R is symmetric iff $R = R^{−1}$
@@ -113,3 +115,4 @@ Properties Closed under Operations:
 2. If $R_1, R_2 ⊆ A × A$ are symmetric, then $R_1^{−1} , R_1 ∩ R_2, R_1 ∪ R_2$ are symmetric.
 3. If $R_1, R_2 ⊆ A × A$ are transitive, then $R_1^{−1} , R_1 ∩ R_2$ are transitive.
 4. If $R_1, R_2 ⊆ A × A$ are antisymmetric, then $R_1^{−1} , R_1 ∩ R_2$ are antisymmetric.
+
