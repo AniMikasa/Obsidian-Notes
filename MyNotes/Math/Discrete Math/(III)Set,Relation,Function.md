@@ -59,4 +59,6 @@ Axiom of Extensionality (外延公理) specifying when two sets are the same.
 Axiom of Empty Set (空集存在公理) in order to generate the first set in axiomatic set theory, the empty set.
 Suppose that we have two sets. We can put they together in a bigger set based on the Axiom of Pairing (配对公理).
 This is done by the Axiom of Union (并集公理) which allows us to unpack a set of sets and create a flatter set.
-According to Axiom Schema of Separation (分离公理模式),there is no “universal set” in axiomatic set theory.
+According to Axiom Schema of Separation (分离公理模式),there is no “universal set” in axiomatic set theory.Using this axiom schema, we can define set intersection and set complement by A∩B ={a ∈ A : a ∈ B} and A − B = {a ∈ A : a ∈/ B}.
+Now, given a set, we want to always be able to build a larger set (we will understand the need later when we discuss the difference between countable and uncountable set).This is done by the Axiom of Power Set (幂集公理)
+Therefore, we have to introduce the Axiom of Infinity (无穷公理) that guarantees the existence of at least one infinite set, namely a set containing the natural numbers.
