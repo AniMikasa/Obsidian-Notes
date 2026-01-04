@@ -127,3 +127,20 @@ Properties of Closures:
 Reflexive Closure: Let $R ⊆ A × A$. Then $r(R) = R ∪ I_A$.
 Symmetric Closure: Let $R ⊆ A × A$. Then $s(R) = R ∪ R^{−1}$ .
 Construction of Transitive Closure: Let R ⊆ A × A. Then $t(R) = R ∪ R_2 ∪ R_3 ∪ · · · = ∪_{k=1}^∞ R_k .$
+
+Multiple Closures:
+1. If R is reflexive, then s(R) and t(R) are also reflexive.
+2. If R is symmetric, then r(R) and t(R) are also symmetric.
+3. If R is transitive, then r(R) is also transitive.
+4. $r(s(R)) = s(r(R))$
+5. $r(t(R)) = t(r(R))$
+6. $s(t(R)) ⊆ t(s(R))$
+7. the “reflexive+symmetric+transitive” closure of R: $t(s(r(R))) = t(r(s(R))) = r(t(s(R)))$
+
+
+A relation R ⊆ A × A is said to be an equivalence relation (等价关系) if it is reflexive, symmetric and transitive.
+Let R ⊆ A × A be an equivalence relation. For any x ∈ A, the equivalence class(等价类) of x is [x]R = {y : y ∈ A ∧ xRy}. The set of all equivalence classes of A is called the quotient set (商集) of A, denoted by A/R = {[x]R : x ∈ A}.Still, for the above example, we have [1]R = [4]R = [7]R = {1, 4, 7}, [2]R = [5]R = [8]R ={2, 5, 8}, [3]R = [6]R = {3, 6} and A/R = {{1, 4, 7}, {2, 5, 8}, {3, 6}}.
+Let A = ∅ be an non-empty set. We say π ⊆ 2 A is a partition (划分) of A if: (i) ∅ ∈/ π; (ii) ∪ π = A; and (iii) (∀x)(∀y)((x ∈ π ∧ y ∈ π ∧ x = y) → x ∩ y = ∅)
+
+
+A relation R ⊆ A × A is said to be an tolerance relation (相容关系) if it is reflexive and symmetric.
