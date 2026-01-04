@@ -32,3 +32,6 @@ If A is a transitive set, then ∪ A is a transitive set.
 If any element in A is a transitive set, then ∪ A is a transitive set.
 
 ⟨x, y⟩ := {{x}, {x, y}}
+Let A be a set and $x, y ∈ A$. Then we have $⟨x, y⟩ ∈ 2^{2^A}$ .
+
+For example, we have $⟨a, b, c, d⟩ = ⟨⟨a, b, c⟩, d⟩ = ⟨⟨⟨a, b⟩, c⟩, d⟩$
