@@ -73,6 +73,14 @@ special relations:
 $fld(R) = ∪∪R$
 
 Relation Operations:
-the converse (逆) of R is a new relation R−1 ⊆ Y × X s.t. $R^{−1}$ = {$⟨x, y⟩ : ⟨y, x⟩ ∈ R$}
+	the converse (逆) of R is a new relation R−1 ⊆ Y × X s.t. $R^{−1}$ = {$⟨x, y⟩ : ⟨y, x⟩ ∈ R$}
+	the restriction (限制) of R to set A is a new relation R↾A ⊆ A × Y s.t. R↾A = {⟨x, y⟩ : ⟨x, y⟩ ∈ R ∧ x ∈ A}
+	the image (象) of R on set A is a set R[A] ⊆ Y s.t. R[A] = {y : (∃x)(x ∈ A ∧ ⟨x, y⟩ ∈ R)}
+	the composite (合成) of R and S is a new relation S ◦ R ⊆ X × Z s.t. S ◦ R = {⟨x, z⟩ : (∃y)(⟨x, y⟩ ∈ R ∧ ⟨y, z⟩ ∈ S)}
 
-
+Let R ⊆ X × Y and S ⊆ Y × Z. Then,
+1. dom ($R^{−1}$ ) = ran(R)
+2. ran ($R^{−1}$ ) = dom(R)
+3. $(R^{−1} )^{−1}$ = R
+4. $(S ◦ R)^{−1} = R^{−1} ◦ S^{−1}$
+Let $Q ⊆ X × Y, S ⊆ Y × Z$ and $R ⊆ Z × W$. Then $(R ◦ S) ◦ Q = R ◦ (S ◦ Q)$.
