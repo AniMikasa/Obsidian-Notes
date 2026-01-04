@@ -30,3 +30,5 @@ A is a transitive set, if and only if, 2 A is a transitive set.
 If A is a transitive set, then ∪ A is a transitive set.
 
 If any element in A is a transitive set, then ∪ A is a transitive set.
+
+⟨x, y⟩ := {{x}, {x, y}}
