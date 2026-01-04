@@ -1,3 +1,4 @@
+## Set Theory
 be careful about subset (子集) and proper-subset (真子集)
 
 Empty set ∅ is unique
@@ -62,3 +63,6 @@ This is done by the Axiom of Union (并集公理) which allows us to unpack a se
 According to Axiom Schema of Separation (分离公理模式),there is no “universal set” in axiomatic set theory.Using this axiom schema, we can define set intersection and set complement by A∩B ={a ∈ A : a ∈ B} and A − B = {a ∈ A : a ∈/ B}.
 Now, given a set, we want to always be able to build a larger set (we will understand the need later when we discuss the difference between countable and uncountable set).This is done by the Axiom of Power Set (幂集公理)
 Therefore, we have to introduce the Axiom of Infinity (无穷公理) that guarantees the existence of at least one infinite set, namely a set containing the natural numbers.
+Axiom of Regularity (正则公理) This axiom together with the axiom of pairing imply that no set is an element of itself, and that no infinite sequence $A_1, A_2, . . .$ such that $A_{i+1} ∈ A_i$ .
+
+## 
