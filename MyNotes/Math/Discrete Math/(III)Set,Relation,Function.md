@@ -66,3 +66,13 @@ Therefore, we have to introduce the Axiom of Infinity (无穷公理) that guaran
 Axiom of Regularity (正则公理) This axiom together with the axiom of pairing imply that no set is an element of itself, and that no infinite sequence $A_1, A_2, . . .$ such that $A_{i+1} ∈ A_i$ .
 
 ## Relation
+special relations:
+	Identity Relation (恒等关系): $I_A$
+	Universal Relation (全域关系): $E_A$
+	Empty Relation (空关系): $∅$
+$fld(R) = ∪∪R$
+
+Relation Operations:
+the converse (逆) of R is a new relation R−1 ⊆ Y × X s.t. $R^{−1}$ = {$⟨x, y⟩ : ⟨y, x⟩ ∈ R$}
+
+
