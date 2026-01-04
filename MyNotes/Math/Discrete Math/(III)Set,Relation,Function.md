@@ -35,3 +35,24 @@ If any element in A is a transitive set, then ∪ A is a transitive set.
 Let A be a set and $x, y ∈ A$. Then we have $⟨x, y⟩ ∈ 2^{2^A}$ .
 
 For example, we have $⟨a, b, c, d⟩ = ⟨⟨a, b, c⟩, d⟩ = ⟨⟨⟨a, b⟩, c⟩, d⟩$
+
+Basic Properties of Set Operations:
+1. A × ∅ = ∅ × A = ∅
+2. If A = B, and A, B are non-empty, then A × B = B × A
+3. (A × B) × C = A × (B × C)
+4. A × (B ∪ C) = (A × B) ∪ (A × C)
+5. A × (B ∩ C) = (A × B) ∩ (A × C)
+6. (B ∪ C) × A = (B × A) ∪ (C × A)
+7. (B ∩ C) × A = (B × A) ∩ (C × A)
+
+For any two sets A, B and non-empty set C, we claim that the followings are equivalent:
+1. A ⊆ B
+2. A × C ⊆ B × C
+3. C × A ⊆ C × B
+
+Let A, B, C, D be non-empty sets. We have A × B ⊆ C × D iff A ⊆ C and B ⊆ D
+
+
+we cannot just describe a set of things satisfying a predicate as a set without any restriction.The key idea for resolving this issue is that sets are constructed from axioms, which leads to the Axiomatic Set Theory(公理集合论).
+
+Axiom of Extensionality (外延公理) specifying when two sets are the same.
