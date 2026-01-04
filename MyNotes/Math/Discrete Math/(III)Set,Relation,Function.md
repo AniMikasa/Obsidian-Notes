@@ -124,3 +124,6 @@ Properties of Closures:
 4. $s (R_1) ∪ s (R_2) = s (R_1 ∪ R_2)$
 5. $t(R_1) ∪ t(R_2) ⊆ t(R_1 ∪ R_2)$
 
+Reflexive Closure: Let $R ⊆ A × A$. Then $r(R) = R ∪ I_A$.
+Symmetric Closure: Let $R ⊆ A × A$. Then $s(R) = R ∪ R^{−1}$ .
+Construction of Transitive Closure: Let R ⊆ A × A. Then $t(R) = R ∪ R_2 ∪ R_3 ∪ · · · = ∪_{k=1}^∞ R_k .$
