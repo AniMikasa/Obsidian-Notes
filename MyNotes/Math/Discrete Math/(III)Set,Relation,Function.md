@@ -2,8 +2,8 @@ be careful about subset (子集) and proper-subset (真子集)
 
 Empty set ∅ is unique
 
-A − (B ∪ C) = (A − B) ∩ (A − C)
-A − (B ∩ C) = (A − B) ∪ (A − C)
+$A − (B ∪ C) = (A − B) ∩ (A − C)$
+$A − (B ∩ C) = (A − B) ∪ (A − C)$
 
 Generalized Union (广义并) and Generalized Intersection (广义交).
 
@@ -13,12 +13,12 @@ power set (幂集)
 
 the power set is always non-empty
 
-2 A always has “more” elements than that of A.
+$2^A$ always has “more” elements than that of A.
 
-2 A ∈ 2 B ⇒ A ∈ B
-A ⊆ B ⇔ 2 A ⊆ 2 B
-2 A ∩ 2 B = 2A∩B
-2 A ∪ 2 B ⊆ 2 A∪B
+$2^A ∈ 2^B ⇒ A ∈ B$
+$A ⊆ B ⇔ 2^A ⊆ 2^B$
+$2^A ∩ 2^B = 2^{A∩B}$
+$2^A ∪ 2^B ⊆ 2^{A∪B}$
 
 Let A be a family of sets. Then A is said to be a transitive set if any element of
 an element in A is still an element in A, i.e.,(∀x)(∀y)((y ∈ A ∧ x ∈ y) → x ∈ A)
@@ -56,3 +56,7 @@ Let A, B, C, D be non-empty sets. We have A × B ⊆ C × D iff A ⊆ C and B �
 we cannot just describe a set of things satisfying a predicate as a set without any restriction.The key idea for resolving this issue is that sets are constructed from axioms, which leads to the Axiomatic Set Theory(公理集合论).
 
 Axiom of Extensionality (外延公理) specifying when two sets are the same.
+Axiom of Empty Set (空集存在公理) in order to generate the first set in axiomatic set theory, the empty set.
+Suppose that we have two sets. We can put they together in a bigger set based on the Axiom of Pairing (配对公理).
+This is done by the Axiom of Union (并集公理) which allows us to unpack a set of sets and create a flatter set.
+According to Axiom Schema of Separation (分离公理模式),there is no “universal set” in axiomatic set theory.
