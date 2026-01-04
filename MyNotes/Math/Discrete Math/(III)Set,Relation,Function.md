@@ -105,3 +105,11 @@ R is antisymmetric iff $R ∩ R^{−1} ⊆ I_A$.
 R is reflexive iff $I_A ⊆ R$
 R is inreflexive iff $I_A ∩ R = ∅$
 R is transitive iff $R ◦ R ⊆ R$.
+
+
+
+Properties Closed under Operations:
+1. If $R_1, R_2 ⊆ A × A$ are reflexive, then ${R_1}^{−1} , R_1 ∩ R_2, R_1 ∪ R_2$ are reflexive.
+2. If $R_1, R_2 ⊆ A × A$ are symmetric, then $R_1^{−1} , R_1 ∩ R_2, R_1 ∪ R_2$ are symmetric.
+3. If $R_1, R_2 ⊆ A × A$ are transitive, then $R_1^{−1} , R_1 ∩ R_2$ are transitive.
+4. If $R_1, R_2 ⊆ A × A$ are antisymmetric, then $R_1^{−1} , R_1 ∩ R_2$ are antisymmetric.
